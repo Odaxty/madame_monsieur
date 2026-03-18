@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import HTMLFlipBook from 'react-pageflip';
+import { Search, Download, X } from 'lucide-react'; 
 import { useLanguage } from '../context/LanguageContext';
 import { menuLabels } from '../data/mockData';
-import { useEffect, useRef } from 'react';
 
 const Page = React.forwardRef((props, ref) => {
   return (
@@ -19,8 +19,9 @@ const Page = React.forwardRef((props, ref) => {
 
 export const MenuSection = () => {
   const { language } = useLanguage();
-
   const bookRef = useRef(null);
+  
+  const [isFullscreenOpen, setIsFullscreenOpen] = useState(false);
 
   useEffect(() => {
     const handleTurnPage = (event) => {
@@ -33,21 +34,25 @@ export const MenuSection = () => {
     return () => window.removeEventListener('turnMenuPage', handleTurnPage);
   }, []);
 
-  // Remplace ces chemins par les chemins réels de tes images générées depuis le PDF
   const menuPages = [
-    '/images/menu/page-1.jpg',  // Couverture (Page 1)
-    '/images/menu/page-2.jpg',  // Előételek / Appetizers
-    '/images/menu/page-3.jpg',  // Főételek / Main Courses
-    '/images/menu/page-4.jpg',  // Galettes / Salads
-    '/images/menu/page-5.jpg',  // Desserts / Sweet Crêpes
-    '/images/menu/page-6.jpg',  // Coupes de Glaces
-    '/images/menu/page-7.jpg',  // Itallap / Drinks
-    '/images/menu/page-8.jpg',  // Cafés / Thés
-    '/images/menu/page-9.jpg',  // Softs / Cocktails sans alcool
-    '/images/menu/page-10.jpg', // Bières / Digestifs
-    '/images/menu/page-11.jpg', // Vins
-    '/images/menu/page-12.jpg', // Dos de couverture (Budapest, Hajós utca 27)
+    '/images/menu/page-1.jpg', 
+    '/images/menu/page-2.jpg', 
+    '/images/menu/page-3.jpg', 
+    '/images/menu/page-4.jpg', 
+    '/images/menu/page-5.jpg', 
+    '/images/menu/page-6.jpg', 
+    '/images/menu/page-7.jpg', 
+    '/images/menu/page-8.jpg', 
+    '/images/menu/page-9.jpg', 
+    '/images/menu/page-10.jpg',
+    '/images/menu/page-11.jpg',
+    '/images/menu/page-12.jpg',
   ];
+
+  const buttonsText = {
+    zoom: { fr: "Lire en plein écran", en: "Read in full screen", hu: "Teljes képernyős olvasás" },
+    download: { fr: "Télécharger (PDF)", en: "Download (PDF)", hu: "Letöltés (PDF)" }
+  };
 
   return (
     <section id="menu" className="py-24 bg-[#fdfbf7]">
@@ -65,19 +70,20 @@ export const MenuSection = () => {
         </div>
 
         {/* Conteneur du Flipbook */}
-<div id="book-container" className="flex justify-center items-center w-full max-w-5xl mx-auto py-8">          <HTMLFlipBook
+        <div id="book-container" className="flex justify-center items-center w-full max-w-5xl mx-auto py-8">
+          <HTMLFlipBook
             ref={bookRef}
-            width={450}          // Largeur de base d'une seule page
-            height={636}         // Hauteur de base (ratio typique A4/Menu)
-            size="stretch"       // Permet au livre de s'adapter au conteneur
+            width={450}          
+            height={636}         
+            size="stretch"       
             minWidth={300}
             maxWidth={600}
             minHeight={424}
             maxHeight={800}
-            maxShadowOpacity={0.5} // Opacité de l'ombre au centre du livre
-            showCover={true}       // LA PROPRIÉTÉ MAGIQUE : Couverture fermée au début et à la fin !
+            maxShadowOpacity={0.5} 
+            showCover={true}       
             mobileScrollSupport={true}
-            className="flipbook-menu"
+            className="flipbook-menu shadow-2xl"
           >
             {menuPages.map((imgUrl, index) => (
               <Page key={index} image={imgUrl} number={index + 1} />
@@ -85,11 +91,63 @@ export const MenuSection = () => {
           </HTMLFlipBook>
         </div>
 
-        <div className="text-center mt-12 text-gray-500 text-sm">
-          <p>{menuLabels.flipInstruction[language]}</p>        
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+          <button
+            onClick={() => setIsFullscreenOpen(true)}
+            className="flex items-center space-x-2 px-6 py-3 bg-gray-900 text-white rounded-full hover:bg-amber-600 transition-colors duration-300 shadow-lg"
+          >
+            <Search className="w-5 h-5" />
+            <span className="font-medium">{buttonsText.zoom[language]}</span>
+          </button>
+
+          <a
+            href="/public/images/menu/menu_final.pdf" 
+            download="Menu_Madame_Monsieur.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center space-x-2 px-6 py-3 bg-white border-2 border-gray-200 text-gray-800 rounded-full hover:border-amber-600 hover:text-amber-600 transition-colors duration-300 shadow-sm"
+          >
+            <Download className="w-5 h-5" />
+            <span className="font-medium">{buttonsText.download[language]}</span>
+          </a>
+        </div>
+
+        <div className="text-center mt-8 text-gray-500 text-sm">
+          <p>{menuLabels.flipInstruction[language]}</p>
         </div>
 
       </div>
+
+      {isFullscreenOpen && (
+        <div className="fixed inset-0 z-[100] bg-black/95 overflow-y-auto">
+          {/* Bouton Fermer Fixe en haut à droite */}
+          <div className="sticky top-0 z-[101] flex justify-end p-4 bg-gradient-to-b from-black/80 to-transparent pointer-events-none">
+            <button
+              onClick={() => setIsFullscreenOpen(false)}
+              className="p-3 bg-white/10 hover:bg-white/20 rounded-full backdrop-blur-md transition-colors duration-300 pointer-events-auto"
+            >
+              <X className="w-6 h-6 text-white" />
+            </button>
+          </div>
+
+          {/* Liste de toutes les pages à la verticale */}
+          <div className="max-w-3xl mx-auto px-4 pb-24 -mt-16">
+            <p className="text-white/50 text-center mb-8 text-sm">
+              Faites défiler pour lire • Pincez pour zoomer
+            </p>
+            <div className="flex flex-col space-y-8">
+              {menuPages.map((imgUrl, index) => (
+                <img
+                  key={index}
+                  src={imgUrl}
+                  alt={`Menu Page ${index + 1}`}
+                  className="w-full h-auto rounded-lg shadow-2xl"
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
