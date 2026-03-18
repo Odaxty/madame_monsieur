@@ -101,7 +101,7 @@ export const MenuSection = () => {
           </button>
 
           <a
-            href="/public/images/menu/menu_final.pdf" 
+            href="/images/menu/menu_final.pdf" 
             download="Menu_Madame_Monsieur.pdf"
             target="_blank"
             rel="noopener noreferrer"
