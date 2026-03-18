@@ -1,130 +1,94 @@
 import React, { useState } from 'react';
-import { menuCategories, menuLabels } from '../data/mockData';
-import { Utensils, Info } from 'lucide-react';
+import HTMLFlipBook from 'react-pageflip';
 import { useLanguage } from '../context/LanguageContext';
+import { menuLabels } from '../data/mockData';
+import { useEffect, useRef } from 'react';
+
+const Page = React.forwardRef((props, ref) => {
+  return (
+    <div className="bg-white shadow-xl overflow-hidden" ref={ref}>
+      <img 
+        src={props.image} 
+        alt={`Page ${props.number}`} 
+        className="w-full h-full object-cover"
+        draggable="false" 
+      />
+    </div>
+  );
+});
 
 export const MenuSection = () => {
-  const [activeCategory, setActiveCategory] = useState(0);
   const { language } = useLanguage();
 
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) element.scrollIntoView({ behavior: 'smooth' });
-  };
+  const bookRef = useRef(null);
+
+  useEffect(() => {
+    const handleTurnPage = (event) => {
+      if (bookRef.current && bookRef.current.pageFlip()) {
+        bookRef.current.pageFlip().flip(event.detail.page);
+      }
+    };
+
+    window.addEventListener('turnMenuPage', handleTurnPage);
+    return () => window.removeEventListener('turnMenuPage', handleTurnPage);
+  }, []);
+
+  // Remplace ces chemins par les chemins réels de tes images générées depuis le PDF
+  const menuPages = [
+    '/images/menu/page-1.jpg',  // Couverture (Page 1)
+    '/images/menu/page-2.jpg',  // Előételek / Appetizers
+    '/images/menu/page-3.jpg',  // Főételek / Main Courses
+    '/images/menu/page-4.jpg',  // Galettes / Salads
+    '/images/menu/page-5.jpg',  // Desserts / Sweet Crêpes
+    '/images/menu/page-6.jpg',  // Coupes de Glaces
+    '/images/menu/page-7.jpg',  // Itallap / Drinks
+    '/images/menu/page-8.jpg',  // Cafés / Thés
+    '/images/menu/page-9.jpg',  // Softs / Cocktails sans alcool
+    '/images/menu/page-10.jpg', // Bières / Digestifs
+    '/images/menu/page-11.jpg', // Vins
+    '/images/menu/page-12.jpg', // Dos de couverture (Budapest, Hajós utca 27)
+  ];
 
   return (
-    <section id="menu" className="py-24 bg-white">
+    <section id="menu" className="py-24 bg-[#fdfbf7]">
       <div className="container mx-auto px-4 lg:px-8">
-        {/* Section Header */}
+        
+        {/* En-tête de la section */}
         <div className="text-center mb-16">
           <span className="inline-block text-amber-600 font-medium text-sm tracking-widest uppercase mb-4">
-            {menuLabels.badge[language]}
+            {menuLabels?.badge?.[language] || "Notre Carte"}
           </span>
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            {menuLabels.title[language]}
+            {menuLabels?.title?.[language] || "Découvrez le Menu"}
           </h2>
           <div className="w-24 h-1 bg-amber-600 mx-auto mb-6"></div>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            {menuLabels.description[language]}
-          </p>
         </div>
 
-        <div className="max-w-6xl mx-auto">
-          {/* Category Tabs */}
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
-            {menuCategories.map((category, index) => (
-              <button
-                key={category.id}
-                onClick={() => setActiveCategory(index)}
-                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                  activeCategory === index
-                    ? 'bg-amber-600 text-white shadow-lg'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                {category.category[language]}
-              </button>
+        {/* Conteneur du Flipbook */}
+<div id="book-container" className="flex justify-center items-center w-full max-w-5xl mx-auto py-8">          <HTMLFlipBook
+            ref={bookRef}
+            width={450}          // Largeur de base d'une seule page
+            height={636}         // Hauteur de base (ratio typique A4/Menu)
+            size="stretch"       // Permet au livre de s'adapter au conteneur
+            minWidth={300}
+            maxWidth={600}
+            minHeight={424}
+            maxHeight={800}
+            maxShadowOpacity={0.5} // Opacité de l'ombre au centre du livre
+            showCover={true}       // LA PROPRIÉTÉ MAGIQUE : Couverture fermée au début et à la fin !
+            mobileScrollSupport={true}
+            className="flipbook-menu"
+          >
+            {menuPages.map((imgUrl, index) => (
+              <Page key={index} image={imgUrl} number={index + 1} />
             ))}
-          </div>
-
-          {/* Menu Items Box */}
-          <div className="bg-gradient-to-br from-amber-50/50 to-white rounded-2xl shadow-xl p-8 md:p-12">
-            {/* Category Title within Box */}
-            <div className="text-center mb-8">
-              <h3 className="font-serif text-3xl font-bold text-gray-900 mb-2">
-                {menuCategories[activeCategory].category[language]}
-              </h3>
-              {menuCategories[activeCategory].subtitle && (
-                <p className="text-amber-600 font-medium text-sm tracking-wide uppercase">
-                  {menuCategories[activeCategory].subtitle}
-                </p>
-              )}
-            </div>
-
-            <div className="grid gap-6">
-              {menuCategories[activeCategory].items.map((item, index) => (
-                <div
-                  key={index}
-                  className="group pb-6 border-b border-amber-200/50 last:border-0 last:pb-0 hover:pb-8 transition-all duration-300"
-                >
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="flex-1">
-                      <div className="flex items-center space-x-3 mb-2">
-                        <Utensils className="w-4 h-4 text-amber-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                        <h4 className="font-serif text-xl md:text-2xl font-bold text-gray-900 group-hover:text-amber-700 transition-colors duration-300">
-                          {item.name}
-                        </h4>
-                      </div>
-                      {item.description && (
-                        <p className="text-gray-600 leading-relaxed ml-0 group-hover:ml-7 transition-all duration-300">
-                          {item.description[language]}
-                        </p>
-                      )}
-                    </div>
-                    {item.price && (
-                      <div className="flex-shrink-0">
-                        <span className="text-lg font-bold text-amber-600">{item.price}</span>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Gluten Free Note (Spécifique aux Galettes - ID 3 dans ton mock) */}
-            {menuCategories[activeCategory].id === 3 && (
-              <div className="mt-8 p-4 bg-green-50 border border-green-200 rounded-lg flex items-start space-x-3">
-                <Info className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                <p className="text-sm text-green-800">
-                  <strong>{menuLabels.glutenTitle[language]}</strong> {menuLabels.glutenText[language]}
-                </p>
-              </div>
-            )}
-
-            {/* Extras Note */}
-            <div className="mt-8 text-center">
-              <p className="text-gray-600 text-sm">
-                <strong>{menuLabels.extrasTitle[language]}</strong>{' '}
-                {menuCategories[activeCategory].id < 3 
-                  ? menuLabels.extrasSweet[language] 
-                  : menuLabels.extrasSavory[language]}
-              </p>
-            </div>
-          </div>
-
-          {/* Full Menu CTA */}
-          <div className="text-center mt-12">
-            <p className="text-gray-600 mb-4">
-              {menuLabels.galleryCTA[language]}
-            </p>
-            <button
-              onClick={() => scrollToSection('galerie')}
-              className="inline-flex items-center justify-center px-8 py-3 bg-gray-900 hover:bg-amber-600 text-white font-medium rounded-full transition-all duration-300 shadow-lg hover:shadow-xl"
-            >
-              {menuLabels.galleryBtn[language]}
-            </button>
-          </div>
+          </HTMLFlipBook>
         </div>
+
+        <div className="text-center mt-12 text-gray-500 text-sm">
+          <p>{menuLabels.flipInstruction[language]}</p>        
+        </div>
+
       </div>
     </section>
   );

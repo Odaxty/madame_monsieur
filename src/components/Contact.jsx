@@ -25,22 +25,7 @@ export const Contact = () => {
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Left Column - Reservation CTA */}
             <div className="space-y-8">
-              <div className="bg-gradient-to-br from-amber-50 to-amber-100/50 rounded-2xl p-8 md:p-12 shadow-xl">
-                <h3 className="font-serif text-3xl font-bold text-gray-900 mb-4">
-                  {contactLabels.cardTitle[language]}
-                </h3>
-                <p className="text-gray-700 mb-8 leading-relaxed">
-                  {contactLabels.cardText[language]}
-                </p>
-                <a href={restaurantInfo.reservationLink} target="_blank" rel="noopener noreferrer" className="block">
-                  <Button
-                    size="lg"
-                    className="w-full bg-amber-600 hover:bg-amber-700 text-white text-lg py-6 shadow-lg hover:shadow-xl transition-all duration-300"
-                  >
-                    {contactLabels.cta[language]}
-                  </Button>
-                </a>
-              </div>
+              
 
               {/* Contact Info Cards */}
               <div className="space-y-4">
@@ -96,7 +81,7 @@ export const Contact = () => {
 
             {/* Right Column - Map */}
             <div className="space-y-6">
-              <div className="bg-white rounded-2xl overflow-hidden shadow-xl h-[500px]">
+              <div className="bg-white rounded-2xl overflow-hidden shadow-xl h-[385px]">
                 <iframe
                   src="https://maps.google.com/maps?q=Madame%20Monsieur%20Budapest%20Hajós%20u.%2027&t=&z=17&ie=UTF8&iwloc=&output=embed"
                   width="100%"
@@ -108,20 +93,6 @@ export const Contact = () => {
                 ></iframe>
               </div>
 
-              {/* Social Media */}
-              <div className="bg-gradient-to-br from-gray-50 to-white rounded-xl p-6 shadow-md">
-                <h4 className="font-bold text-gray-900 mb-4 text-center">
-                  {contactLabels.social[language]}
-                </h4>
-                <div className="flex justify-center space-x-4">
-                  <a href={restaurantInfo.socialMedia.facebook} target="_blank" className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white">
-                    <Facebook className="w-6 h-6" />
-                  </a>
-                  <a href={restaurantInfo.socialMedia.instagram} target="_blank" className="w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full flex items-center justify-center text-white">
-                    <Instagram className="w-6 h-6" />
-                  </a>
-                </div>
-              </div>
             </div>
           </div>
         </div>

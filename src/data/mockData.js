@@ -4,14 +4,14 @@
 export const restaurantInfo = {
   name: "Madame Monsieur",
   tagline: {
-    fr: "L'art de la table à Budapest",
-    en: "The art of the table in Budapest",
-    hu: "Az asztal művészete Budapesten",
+    fr: "L'authentique bistrot français à Budapest",
+    en: "The authentic French bistro in Budapest",
+    hu: "Autentikus francia bisztró Budapesten",
   },
   description: {
-    fr: "Bienvenue chez Madame Monsieur, où la tradition française rencontre l'élégance contemporaine au cœur de Budapest. Notre restaurant vous invite à découvrir une cuisine raffinée, préparée avec passion.",
-    en: "Welcome to Madame Monsieur, where French tradition meets contemporary elegance in the heart of Budapest. Our restaurant invites you to discover refined cuisine prepared with passion.",
-    hu: "Üdvözöljük a Madame Monsieur-ben, ahol a francia hagyomány és a kortárs elegancia találkozik Budapest szívében. Éttermünk szenvedéllyel készült, finom ételek felfedezésére invitálja Önt.",
+    fr: "Bienvenue chez Madame Monsieur, votre bistrot et crêperie au cœur de Budapest. Nous vous invitons à partager un moment convivial et à découvrir une cuisine française authentique, généreuse et faite maison.",
+    en: "Welcome to Madame Monsieur, your bistro and creperie in the heart of Budapest. We invite you to share a convivial moment and discover authentic, generous, and homemade French cuisine.",
+    hu: "Üdvözöljük a Madame Monsieur-ben, az Ön bisztrójában és palacsintázójában Budapest szívében. Meghívjuk Önt egy barátságos pillanatra, hogy felfedezze az autentikus, bőséges és házi készítésű francia konyhát.",
   },
   address: "Budapest, Hajós u. 27, 1065",
   phone: "06703067833",
@@ -21,30 +21,24 @@ export const restaurantInfo = {
     instagram: "https://www.instagram.com/madamemonsieur.hu/?hl=fr",
   },
   hours: {
-    weekday: {
-      fr: "Mardi - Vendredi: 12h00 - 23h00",
-      en: "Tuesday - Friday: 12:00 PM - 11:00 PM",
-      hu: "Kedd - Péntek: 12:00 - 23:00",
-    },
-    weekend: {
-      fr: "Samedi - Dimanche: 11h00 - 00h00",
-      en: "Saturday - Sunday: 11:00 AM - 12:00 AM",
-      hu: "Szombat - Vasárnap: 11:00 - 00:00",
-    },
-    closed: {
-      fr: "Fermé le lundi",
-      en: "Closed on Monday",
-      hu: "Hétfőn zárva",
-    },
+  weekday: {
+    fr: "Mercredi - Vendredi : 11h00 - 22h00",
+    en: "Wednesday - Friday: 11:00 AM - 10:00 PM",
+    hu: "Szerda - Péntek: 11:00 - 22:00",
   },
+  weekend: {
+    fr: "Samedi - Dimanche : 11h00 - 22h00",
+    en: "Saturday - Sunday: 11:00 AM - 10:00 PM",
+    hu: "Szombat - Vasárnap: 11:00 - 22:00",
+  },
+  closed: {
+    fr: "Fermé lundi et mardi",
+    en: "Closed on Monday and Tuesday",
+    hu: "Hétfőn és kedden zárva",
+  },
+},
 };
 
-// ==========================================
-// MENU CATEGORIES
-// ==========================================
-// ==========================================
-// MENU CATEGORIES - VERSION COMPLÈTE RESTAURÉE
-// ==========================================
 export const menuCategories = [
   {
     id: 1,
@@ -115,12 +109,6 @@ export const menuCategories = [
 
 export const drinks = [
   {
-    id: 1,
-    name: "Cocktail Blue Lagoon",
-    image: "/images/boisson/boisson1.jpg",
-    category: "cocktails",
-  },
-  {
     id: 2,
     name: "Espresso Martini",
     image: "/images/boisson/boisson2.jpg",
@@ -131,12 +119,6 @@ export const drinks = [
     name: "Vin Blanc",
     image: "/images/boisson/boisson3.jpg",
     category: "vins",
-  },
-  {
-    id: 4,
-    name: "Cocktail aux Fraises",
-    image: "/images/boisson/boisson4.jpg",
-    category: "cocktails",
   },
   {
     id: 5,
@@ -180,86 +162,52 @@ export const dishPhotos = [
   {
     id: 1,
     src: "/images/plat/plat1.jpg",
-    alt: "Galettes aux oignons rouges",
   },
   {
     id: 2,
     src: "/images/plat/plat2.jpg",
-    alt: "Crêpe salée garnie",
-  },
-  {
-    id: 3,
-    src: "/images/plat/plat3.jpg",
-    alt: "Croissant garni et salade",
-  },
-  {
-    id: 4,
-    src: "/images/plat/plat4.jpg",
-    alt: "Assiette de fromages et charcuterie",
   },
   {
     id: 5,
     src: "/images/plat/plat5.jpg",
-    alt: "Quiche maison avec salade",
   },
   {
     id: 6,
     src: "/images/plat/plat6.jpg",
-    alt: "Galette classic",
   },
   {
     id: 7,
     src: "/images/plat/plat7.jpg",
-    alt: "Galette Vertes",
   },
   {
     id: 8,
     src: "/images/plat/plat8.jpg",
-    alt: "Planche de charcuterie",
   },
   {
     id: 9,
     src: "/images/plat/plat9.jpg",
-    alt: "Galette classic",
   },
   {
     id: 10,
     src: "/images/plat/plat10.jpg",
-    alt: "Dessert gourmand",
   },
 ];
 
-export const menuPhotos = [
-  { id: 1, src: "/images/menu/menu1.jpg", alt: "Menu Crêpes" },
-  { id: 2, src: "/images/menu/menu2.jpg", alt: "Menu Galettes Sarrasin" },
-  { id: 3, src: "/images/menu/menu3.jpg", alt: "Menu Salades et Plats" },
-  { id: 4, src: "/images/menu/menu4.jpg", alt: "Menu Galettes (détails)" },
-  { id: 5, src: "/images/menu/menu5.jpg", alt: "Menu Crêpes (détails)" },
-    { id: 6, src: "/images/menu/menu6.jpg", alt: "Dessert" },
-
-];
 
 export const interiorPhotos = [
   {
     id: 1,
-    src: "/images/interieur/interieur1.jpg",
-    alt: "Bar et espace principal",
+    src: "/images/interieur/interieur1.jpg"
   },
   {
     id: 2,
-    src: "/images/interieur/interieur2.jpg",
-    alt: "Salle avec banquettes rouges",
+    src: "/images/interieur/interieur2.jpg"
   },
-  { id: 3, src: "/images/interieur/interieur3.jpg", alt: "Tables élégantes" },
+  { id: 3, src: "/images/interieur/interieur3.jpg" },
   {
     id: 4,
     src: "/images/interieur/interieur4.jpg",
-    alt: "Ambiance chaleureuse",
-  },
-  { id: 5, src: "/images/interieur/interieur5.jpg", alt: "Espace terrasse" },
-  { id: 6, src: "/images/interieur/interieur6.jpg", alt: "Espace terrasse" },
-  { id: 7, src: "/images/interieur/interieur7.jpg", alt: "Espace terrasse" },
-{ id: 8, src: "/images/interieur/interieur8.jpg", alt: "Espace terrasse" },
+  }
 ];
 
 // ==========================================
@@ -269,36 +217,36 @@ export const interiorPhotos = [
 export const aboutContent = {
   title: { fr: "Notre Histoire", en: "Our Story", hu: "Történetünk" },
   subtitle: {
-    fr: "Une passion pour l'excellence",
-    en: "A passion for excellence",
-    hu: "A kiválóság iránti szenvedély",
+    fr: "L'amour de la cuisine authentique",
+    en: "A love for authentic cuisine",
+    hu: "Az autentikus konyha szeretete",
   },
   paragraphs: {
     fr: [
-      "Madame Monsieur est né d'une passion pour la gastronomie française au cœur de Budapest.",
-      "Chaque plat est préparé avec soin et des produits de qualité exceptionnelle.",
+      "Madame Monsieur est né de l'envie de partager les vraies saveurs des bistrots français au cœur de Budapest.",
+      "Chaque plat est préparé avec passion, dans une ambiance chaleureuse où l'on se sent comme à la maison.",
     ],
     en: [
-      "Madame Monsieur was born from a passion for French gastronomy in the heart of Budapest.",
-      "Each dish is carefully prepared with exceptional quality products.",
+      "Madame Monsieur was born from the desire to share the true flavors of French bistros in the heart of Budapest.",
+      "Each dish is prepared with passion, in a cozy atmosphere where you feel right at home.",
     ],
     hu: [
-      "A Madame Monsieur a francia gasztronómia iránti szenvedélyből született Budapest szívében.",
-      "Minden étel gondosan, kivételes minőségű alapanyagokból készül.",
+      "A Madame Monsieur abból a vágyból született, hogy megosszuk a francia bisztrók valódi ízeit Budapest szívében.",
+      "Minden étel szenvedéllyel készül, egy olyan hangulatos környezetben, ahol otthon érezheti magát.",
     ],
   },
   highlights: [
     {
       icon: "chef-hat",
       text: {
-        fr: "Cuisine raffinée",
-        en: "Refined cuisine",
-        hu: "Finom konyha",
+        fr: "Recettes traditionnelles",
+        en: "Traditional recipes",
+        hu: "Hagyományos receptek",
       },
     },
     {
       icon: "wine",
-      text: { fr: "Carte des vins", en: "Wine list", hu: "Borlap" },
+      text: { fr: "Carte des boissons", en: "Drink list", hu: "Italválaszték" },
     },
   ],
 };
@@ -312,9 +260,9 @@ export const contactLabels = {
     hu: "Foglaljon asztalt",
   },
   cardText: {
-    fr: "Vivez une expérience gastronomique inoubliable. Réservez dès maintenant votre table pour profiter de notre cuisine raffinée.",
-    en: "Experience an unforgettable culinary journey. Book your table now to enjoy our refined cuisine.",
-    hu: "Éljen át egy felejthetetlen kulináris élményt. Foglaljon asztalt most, és élvezze kifinomult konyhánkat.",
+    fr: "Venez partager un bon moment autour d'un repas gourmand. Réservez votre table dès maintenant.",
+    en: "Come and share a great time over a delicious meal. Book your table now.",
+    hu: "Jöjjön el és töltsön el egy remek időt egy finom étkezés mellett. Foglaljon asztalt most.",
   },
   cta: { fr: "Réserver maintenant", en: "Book now", hu: "Foglalás most" },
   address: { fr: "Adresse", en: "Address", hu: "Cím" },
@@ -329,9 +277,9 @@ export const contactLabels = {
 
 export const footerLabels = {
   tagline: {
-    fr: "L'art de la table à Budapest. Une expérience culinaire raffinée dans une ambiance élégante.",
-    en: "The art of the table in Budapest. A refined culinary experience in an elegant atmosphere.",
-    hu: "Az asztali művészet Budapesten. Kifinomult kulináris élmény elegáns környezetben.",
+    fr: "L'authentique bistrot français à Budapest. Un moment gourmand dans une ambiance chaleureuse.",
+    en: "The authentic French bistro in Budapest. A delicious moment in a cozy atmosphere.",
+    hu: "Autentikus francia bisztró Budapesten. Finom pillanatok hangulatos környezetben.",
   },
   nav: { fr: "Navigation", en: "Navigation", hu: "Navigáció" },
   contact: { fr: "Contact", en: "Contact", hu: "Kapcsolat" },
@@ -353,7 +301,7 @@ export const footerLabels = {
     accueil: { fr: "Accueil", en: "Home", hu: "Kezdőlap" },
     "a-propos": { fr: "À propos", en: "About", hu: "Rólunk" },
     menu: { fr: "Menu", en: "Menu", hu: "Étlap" },
-    galerie: { fr: "Galéria", en: "Gallery", hu: "Galéria" },
+    galerie: { fr: "Galerie", en: "Gallery", hu: "Galéria" },
     avis: { fr: "Avis", en: "Reviews", hu: "Vélemények" },
     contact: { fr: "Contact", en: "Contact", hu: "Kapcsolat" },
   },
@@ -361,11 +309,11 @@ export const footerLabels = {
 
 export const galleryLabels = {
   badge: { fr: "Galerie", en: "Gallery", hu: "Galéria" },
-  title: { fr: "Nos Créations", en: "Our Creations", hu: "Alkotásaink" },
+  title: { fr: "Nos Assiettes", en: "Our Plates", hu: "Tányérjaink" },
   description: {
-    fr: "Un aperçu visuel de notre univers : plats raffinés, cocktails signatures et ambiance élégante",
-    en: "A visual glimpse of our world: refined dishes, signature cocktails, and elegant atmosphere",
-    hu: "Vizuális betekintés világunkba: finom ételek, koktélkülönlegességek és elegáns környezet",
+    fr: "Un aperçu visuel de notre univers : plats gourmands, crêpes généreuses et ambiance décontractée.",
+    en: "A visual glimpse of our world: delicious dishes, generous crepes, and a relaxed atmosphere.",
+    hu: "Vizuális betekintés világunkba: finom ételek, bőséges palacsinták és laza hangulat.",
   },
   drinks: {
     fr: "Cocktails & Boissons",
@@ -380,23 +328,11 @@ export const galleryLabels = {
   },
 };
 
-export const headerLabels = {
-  navLinks: {
-    accueil: { fr: "Accueil", en: "Home", hu: "Kezdőlap" },
-    about: { fr: "À Propos", en: "About", hu: "Rólunk" },
-avis: { fr: "Avis", en: "Reviews", hu: "Vélemények" },
-    menu: { fr: "Menu", en: "Menu", hu: "Étlap" },
-    galerie: { fr: "Galerie", en: "Gallery", hu: "Galéria" },
-    contact: { fr: "Contact", en: "Contact", hu: "Kapcsolat" },
-  },
-  reservation: { fr: "Réservation", en: "Reservation", hu: "Foglalás" },
-};
-
 export const heroLabels = {
   badge: {
-    fr: "Cuisine raffinée à Budapest",
-    en: "Fine dining in Budapest",
-    hu: "Finom ételek Budapesten",
+    fr: "Bistrot & Crêperie à Budapest",
+    en: "Bistro & Creperie in Budapest",
+    hu: "Bisztró és Palacsintázó Budapesten",
   },
   ctaBook: {
     fr: "Réserver une table",
@@ -417,6 +353,11 @@ export const menuLabels = {
     fr: "Crêpes sucrées, galettes de sarrasin sans gluten, salades fraîches et plats faits maison",
     en: "Sweet crepes, gluten-free buckwheat galettes, fresh salads and homemade dishes",
     hu: "Édes palacsinták, gluténmentes hajdina galette-ek, friss saláták és házi készítésű ételek",
+  },
+  flipInstruction: {
+    fr: "Cliquez sur les coins ou glissez pour tourner les pages.",
+    en: "Click on the corners or swipe to turn the pages.",
+    hu: "Kattintson a sarkokra, vagy húzza az ujját a lapozáshoz.",
   },
   glutenTitle: {
     fr: "Galettes sans gluten :",
@@ -455,6 +396,26 @@ export const menuLabels = {
   },
 };
 
+export const headerLabels = {
+
+  navLinks: {
+
+    accueil: { fr: "Accueil", en: "Home", hu: "Kezdőlap" },
+
+    about: { fr: "À Propos", en: "About", hu: "Rólunk" },
+    menu: { fr: "Menu", en: "Menu", hu: "Étlap" },
+
+    galerie: { fr: "Galerie", en: "Gallery", hu: "Galéria" },
+avis: { fr: "Avis", en: "Reviews", hu: "Vélemények" },
+
+    contact: { fr: "Contact", en: "Contact", hu: "Kapcsolat" },
+
+  },
+
+  reservation: { fr: "Réservation", en: "Reservation", hu: "Foglalás" },
+
+};
+
 export const testimonialLabels = {
   badge: { fr: "Témoignages", en: "Testimonials", hu: "Vélemények" },
   title: {
@@ -463,9 +424,9 @@ export const testimonialLabels = {
     hu: "Vendégeink véleménye",
   },
   description: {
-    fr: "Découvrez ce que nos clients pensent de leur expérience chez Madame Monsieur",
-    en: "Discover what our guests think about their experience at Madame Monsieur",
-    hu: "Fedezze fel, mit gondolnak vendégeink a Madame Monsieur-nél szerzett élményeikről",
+    fr: "Ce que nos clients disent de leur repas chez Madame Monsieur.",
+    en: "What our guests say about their meal at Madame Monsieur.",
+    hu: "Amit vendégeink mondanak a Madame Monsieur-ben elköltött étkezésükről.",
   },
   averageNote: {
     fr: "Note moyenne",
@@ -475,79 +436,91 @@ export const testimonialLabels = {
 };
 
 // ==========================================
-// TESTIMONIALS - VERSION COMPLÈTE RESTAURÉE
+// TESTIMONIALS (VRAIS AVIS GOOGLE)
 // ==========================================
 export const testimonials = [
   {
     id: 1,
-    name: "Sophie Laurent",
-    location: "Paris, France",
+    name: "Ainonkpo Leandry",
+    location: "Avis Google",
     rating: 5,
     comment: {
-      fr: "Une expérience culinaire exceptionnelle ! Les plats sont raffinés, le service impeccable et l'ambiance est tout simplement magique.",
-      en: "An exceptional culinary experience! The dishes are refined, the service is impeccable and the atmosphere is simply magical.",
-      hu: "Kivételes kulináris élmény! Az ételek kifinomultak, a kiszolgálás kifogástalan, a hangulat pedig egyszerűen varázslatos."
+      fr: "Nous sommes passés avec ma petite amie dans ce restaurant dès notre arrivée, c’était si savoureux que nous avons dû y retourner à notre départ afin d’être sur de finir le voyage sur une belle note ! Sans oublier un + pour l’accueil chaleureux du gérant et ses anecdotes loufoques à la française. Je recommande chaudement !",
+      en: "My girlfriend and I visited this restaurant as soon as we arrived. It was so tasty that we had to go back before leaving to end our trip on a high note! A big plus for the warm welcome from the manager and his quirky French anecdotes. I highly recommend it!",
+      hu: "Barátnőmmel rögtön az érkezésünk után betértünk ebbe az étterembe. Olyan finom volt, hogy elutazás előtt is vissza kellett mennünk, hogy szépen zárjuk az utazást! Külön pluszpont az üzletvezető meleg fogadtatásáért és vicces francia anekdotáiért. Meleg szívvel ajánlom!"
     },
-    date: "Janvier 2026"
+    date: "Il y a 7 mois"
   },
   {
     id: 2,
-    name: "Thomas Dubois",
-    location: "Lyon, France",
+    name: "Traiteur la rose des sables",
+    location: "Avis Google",
     rating: 5,
     comment: {
-      fr: "Madame Monsieur est devenu mon restaurant préféré à Budapest. La qualité des produits et l'élégance du cadre en font une adresse incontournable.",
-      en: "Madame Monsieur has become my favorite restaurant in Budapest. The quality of the products and the elegance of the setting make it a must-visit.",
-      hu: "A Madame Monsieur lett a kedvenc éttermem Budapesten. A termékek minősége és a környezet eleganciája megkerülhetetlen címmé teszi."
+      fr: "Nous avons mangé ce midi de très bonnes crêpes, avec un très bon service, le rapport qualité prix correspond à la qualité de la cuisine. L'établissement est propre avec une belle déco. Vous pouvez y aller les yeux fermés. Des français en vacances. À bientôt.",
+      en: "We had very good crepes for lunch today, with great service. The value for money matches the quality of the food. The establishment is clean with beautiful decor. You can go there with your eyes closed. French people on vacation. See you soon.",
+      hu: "Nagyon finom palacsintákat ettünk ma ebédre, nagyon jó kiszolgálással. Az ár-érték arány megfelel az ételek minőségének. A hely tiszta és gyönyörű a dekoráció. Csukott szemmel is mehetnek. Nyaraló franciák. Hamarosan találkozunk."
     },
-    date: "Décembre 2025"
+    date: "Il y a un mois"
   },
   {
     id: 3,
-    name: "Marie Leclerc",
-    location: "Budapest, Hongrie",
+    name: "Fabienne Chaber",
+    location: "Avis Google",
     rating: 5,
     comment: {
-      fr: "Un lieu d'exception où tradition française et modernité se rencontrent parfaitement. Les cocktails sont divins !",
-      en: "An exceptional place where French tradition and modernity meet perfectly. The cocktails are divine!",
-      hu: "Kivételes hely, ahol a francia hagyomány és a modernitás tökéletesen találkozik. A koktélok isteniek!"
+      fr: "Très belle découverte ! Nous avons pris les galettes et elles étaient aussi bonnes qu’en Bretagne. D’ailleurs, le Chef est français et est natif de Brest. Nous nous sommes partagés la crêpe complète. Tellement délicieuse. L’accueil et le service étaient impeccables.",
+      en: "A wonderful discovery! We had the galettes and they were as good as in Brittany. In fact, the Chef is French and comes from Brest. We shared the 'complète' crepe. So delicious. The welcome and service were impeccable.",
+      hu: "Nagyszerű felfedezés! Galette-eket ettünk, és olyan finomak voltak, mint Bretagne-ban. A séf egyébként francia és Brestből származik. Megosztottunk egy 'complète' palacsintát. Nagyon finom volt. A fogadtatás és a kiszolgálás kifogástalan volt."
     },
-    date: "Janvier 2026"
+    date: "Il y a 5 mois"
   },
   {
     id: 4,
-    name: "Antoine Bernard",
-    location: "Genève, Suisse",
+    name: "Lucille Gdl",
+    location: "Avis Google",
     rating: 5,
     comment: {
-      fr: "Service attentionné et cuisine remarquable. Parfait pour un dîner en amoureux ou un repas d'affaires.",
-      en: "Attentive service and remarkable cuisine. Perfect for a romantic dinner or a business meal.",
-      hu: "Figyelmes kiszolgálás és figyelemre méltó konyha. Tökéletes egy romantikus vacsorához vagy egy üzleti étkezéshez."
+      fr: "Les crêpes étaient délicieuses et les quantités sont généreuses ! Le cadre est vraiment sympa. Le restaurant est très bien placé, en plein cœur de la ville. Le patron et le serveur étaient vraiment accueillants et chaleureux. Je reviendrai avec plaisir !",
+      en: "The crepes were delicious and the portions are generous! The setting is really nice. The restaurant is very well located, right in the heart of the city. The boss and the waiter were really welcoming and warm. I will come back with pleasure!",
+      hu: "A palacsinták finomak voltak, az adagok pedig bőségesek! A környezet igazán kellemes. Az étterem nagyon jó helyen, a város szívében található. A főnök és a pincér is nagyon barátságos és szívélyes volt. Örömmel fogok visszatérni!"
     },
-    date: "Novembre 2025"
+    date: "Il y a un an"
   },
   {
     id: 5,
-    name: "Claire Martin",
-    location: "Bruxelles, Belgique",
-    rating: 5,
+    name: "kawtar sadky",
+    location: "Avis Google",
+    rating: 4,
     comment: {
-      fr: "Chaque visite est un enchantement. La présentation des plats est artistique et l'équipe est aux petits soins.",
-      en: "Each visit is an enchantment. The presentation of the dishes is artistic and the team is very attentive.",
-      hu: "Minden látogatás egy varázslat. Az ételek tálalása művészi, a csapat pedig mindenre odafigyel."
+      fr: "Bon restaurant de crêpes à Budapest. Les produits sont très frais et le service est top. Ça reste un peu cher pour des crêpes, en comparaison avec les restaurants à côté, mais c'est à faire si vous aimez les crêpes.",
+      en: "Good crepe restaurant in Budapest. The products are very fresh and the service is top notch. It remains a bit expensive for crepes compared to places nearby, but it's a must-do if you like crepes.",
+      hu: "Jó palacsintázó Budapesten. A termékek nagyon frissek és a kiszolgálás is kiváló. Kicsit drága palacsintához képest a szomszédos éttermekhez viszonyítva, de mindenképp érdemes kipróbálni, ha szereted a palacsintát."
     },
-    date: "Décembre 2025"
+    date: "Il y a un an"
   },
   {
     id: 6,
-    name: "Lucas Petit",
-    location: "Nice, France",
+    name: "Damien Rivier",
+    location: "Avis Google",
     rating: 5,
     comment: {
-      fr: "Une adresse exceptionnelle que je recommande à tous mes amis. Le rapport qualité-prix est excellent.",
-      en: "An exceptional address that I recommend to all my friends. The value for money is excellent.",
-      hu: "Kivételes hely, amelyet minden barátomnak ajánlok. Az ár-érték arány kiváló."
+      fr: "Un restaurant super agréable en plein cœur de Budapest. Si vous aimez les crêpes sucrées et salées c’est l’endroit idéal. Je recommande !",
+      en: "A super pleasant restaurant in the heart of Budapest. If you like sweet and savory crepes, this is the perfect place. I recommend it!",
+      hu: "Egy szuper kellemes étterem Budapest szívében. Ha szereted az édes és sós palacsintákat, ez a tökéletes hely. Ajánlom!"
     },
-    date: "Octobre 2025"
+    date: "Il y a un an"
+  },
+  {
+    id: 7,
+    name: "jean-noel nicole Benguigui",
+    location: "Avis Google",
+    rating: 5,
+    comment: {
+      fr: "De séjour à Budapest en famille, nous sommes tombés par hasard sur cette crêperie française. Le patron, français, très agréable et sympathique nous a très bien reçus. Très bonnes crêpes au sarrasin bien garnies, sucrées ou salées. Je recommande vivement.",
+      en: "Staying in Budapest with family, we stumbled upon this French creperie by chance. The French owner, very pleasant and friendly, welcomed us very well. Very good buckwheat crepes, well garnished, sweet or savory. I highly recommend.",
+      hu: "Családi nyaraláson voltunk Budapesten, és véletlenül bukkantunk erre a francia palacsintázóra. A nagyon kellemes és barátságos francia tulajdonos kiválóan fogadott minket. Nagyon jó hajdina palacsinták, bőségesen töltve, édesen vagy sósan. Melegen ajánlom."
+    },
+    date: "Il y a 11 mois"
   }
 ];

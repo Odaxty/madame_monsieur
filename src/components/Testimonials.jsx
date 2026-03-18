@@ -34,9 +34,6 @@ export const Testimonials = () => {
             {testimonialLabels.title[language]}
           </h2>
           <div className="w-24 h-1 bg-amber-600 mx-auto mb-6"></div>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            {testimonialLabels.description[language]}
-          </p>
         </div>
 
         {/* Testimonials Grid */}
@@ -121,13 +118,14 @@ export const Testimonials = () => {
           <div className="mt-12 text-center">
             <div className="inline-flex items-center space-x-3 bg-gradient-to-br from-amber-50 to-amber-100 px-8 py-4 rounded-full shadow-md">
               <div className="flex items-center space-x-1">
+                {/* On garde les 5 étoiles visuelles, c'est classique pour un score > 4.5 */}
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-6 h-6 fill-amber-400 text-amber-400" />
                 ))}
               </div>
               <div className="h-6 w-px bg-amber-300"></div>
               <div className="text-left">
-                <p className="text-2xl font-bold text-gray-900">5.0</p>
+                <p className="text-2xl font-bold text-gray-900">4.7</p>
                 <p className="text-xs text-gray-600">{testimonialLabels.averageNote[language]}</p>
               </div>
             </div>

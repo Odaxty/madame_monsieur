@@ -19,7 +19,7 @@ export const Hero = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img
-          src="https://customer-assets.emergentagent.com/job_budapest-bistrot/artifacts/ttlnjusw_boisson2.jpg"
+          src="/images/plat/plat9.jpg"
           alt="Madame Monsieur Restaurant"
           className="w-full h-full object-cover"
         />

@@ -24,8 +24,8 @@ function App() {
           <Hero />
           <About />
           <MenuSection />
-          <Testimonials />
           <Gallery />
+          <Testimonials />
           <Contact />
         </main>
 

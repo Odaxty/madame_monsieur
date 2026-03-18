@@ -13,6 +13,25 @@ const iconMap = {
 export const About = () => {
   const { language } = useLanguage();
 
+  const handleNavigateToMenu = (index) => {
+    // Index 0 = "Recettes traditionnelles" -> Page 2 (index 1)
+    // Index 1 = "Carte des vins" -> Page 8 (index 7)
+    const targetPage = index === 0 ? 1 : 7; 
+
+    // 1. On cible directement le conteneur du livre (pas la section entière)
+    const bookContainer = document.getElementById('book-container');
+    
+    if (bookContainer) {
+      // block: 'center' permet de mettre le livre parfaitement au milieu de l'écran
+      bookContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    // 2. On attend 800ms (le temps que le défilement se termine) pour lancer l'animation !
+    setTimeout(() => {
+      window.dispatchEvent(new CustomEvent('turnMenuPage', { detail: { page: targetPage } }));
+    }, 800);
+  };
+
   return (
     <section id="a-propos" className="py-24 bg-gradient-to-b from-white to-amber-50/30">
       <div className="container mx-auto px-4 lg:px-8">
@@ -20,7 +39,7 @@ export const About = () => {
           {/* Section Header */}
           <div className="text-center mb-16">
             <span className="inline-block text-amber-600 font-medium text-sm tracking-widest uppercase mb-4">
-              {aboutContent.title[language]}
+              {aboutContent.title[language]}  
             </span>
             <h2 className="font-serif text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               {aboutContent.title[language]}
@@ -33,29 +52,11 @@ export const About = () => {
             <div className="relative">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <img
-                  src="https://customer-assets.emergentagent.com/job_budapest-bistrot/artifacts/vdyvqj6v_boisson3.jpg"
+                  src="/images/plat/plat6.jpg"
                   alt="Madame Monsieur Budapest"
                   className="w-full h-[500px] object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-              </div>
-              
-              {/* Floating Card */}
-              <div className="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-2xl p-6 max-w-xs">
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center">
-                    <Sparkles className="w-6 h-6 text-amber-600" />
-                  </div>
-                  <div>
-                    <p className="font-bold text-gray-900 text-lg">
-                      {/* On garde Excellence/Kiválóság ici ou on peut l'ajouter au mock plus tard */}
-                      {language === 'fr' ? 'Excellence' : language === 'hu' ? 'Kiválóság' : 'Excellence'}
-                    </p>
-                    <p className="text-sm text-gray-600">
-                      {aboutContent.subtitle[language]}
-                    </p>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -79,7 +80,8 @@ export const About = () => {
                   return (
                     <div
                       key={index}
-                      className="flex items-center space-x-3 p-4 bg-white rounded-lg shadow-sm border border-amber-100 hover:shadow-md transition-shadow duration-300"
+                      onClick={() => handleNavigateToMenu(index)}
+                      className="flex items-center space-x-3 p-4 bg-white rounded-lg shadow-sm border border-amber-100 hover:shadow-md transition-all duration-300 cursor-pointer hover:bg-amber-50 hover:-translate-y-1"
                     >
                       <div className="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center flex-shrink-0">
                         <Icon className="w-5 h-5 text-amber-600" />
