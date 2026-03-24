@@ -403,10 +403,11 @@ export const headerLabels = {
     accueil: { fr: "Accueil", en: "Home", hu: "Kezdőlap" },
 
     about: { fr: "À Propos", en: "About", hu: "Rólunk" },
-    menu: { fr: "Menu", en: "Menu", hu: "Étlap" },
+    /*menu: { fr: "Menu", en: "Menu", hu: "Étlap" },*/
 
     galerie: { fr: "Galerie", en: "Gallery", hu: "Galéria" },
-avis: { fr: "Avis", en: "Reviews", hu: "Vélemények" },
+
+    avis: { fr: "Avis", en: "Reviews", hu: "Vélemények" },
 
     contact: { fr: "Contact", en: "Contact", hu: "Kapcsolat" },
 
