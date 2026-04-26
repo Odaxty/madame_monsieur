@@ -35,7 +35,7 @@ export const Footer = () => {
           <div>
             <h4 className="font-bold text-lg mb-6">{footerLabels.nav[language]}</h4>
             <ul className="space-y-3">
-              {['accueil', 'a-propos', 'menu', 'galerie', 'avis', 'contact'].map((id) => (
+              {['accueil', 'a-propos', /*'menu',*/ 'galerie', 'avis', 'contact'].map((id) => (
                 <li key={id}>
                   <button
                     onClick={() => scrollToSection(id)}
